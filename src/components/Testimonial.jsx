@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 const testimonials = [
   {
     quote:
-      "Nexily transformed our business with their innovative solutions. Their team's expertise and dedication exceeded our expectations.",
+      "Nexily transformed our business with their innovative solutions. Their team's expertise and dedication exceeded our expectations. Working with Nexily was a game-changer for our company. Their strategic approach and technical expertise helped us achieve our goals faster than we thought possible.",
     author: "Sarah Johnson",
     position: "CEO, TechVision",
     avatar:
@@ -71,11 +71,11 @@ export default function Testimonials() {
         </div>
 
         <div
-          className="max-w-5xl mx-auto"
+          className="max-w-6xl"
           style={{
             boxShadow:
               "0 0 0 transparent,0 0 0 transparent, 0 0 3rem rgba(76, 103, 150, 0.3)",
-            padding: "50px 0",
+            padding: "30px 0",
           }}
         >
           <div className="relative">
