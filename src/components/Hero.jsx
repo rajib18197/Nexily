@@ -26,7 +26,18 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+              <h1
+                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 market"
+                style={{
+                  backgroundColor: "rgb(255, 178, 62)",
+                  backgroundImage:
+                    "linear-gradient(45deg, rgb(115, 43, 247) 0%, rgb(125, 48, 248) 13%, rgb(134, 52, 249) 19%, rgb(143, 57, 249) 23%, rgb(155, 66, 250) 27%, rgb(164, 70, 251) 31%, rgb(172, 75, 251) 34%, rgb(180, 79, 252) 38%, rgb(188, 83, 253) 41%, rgb(196, 88, 253) 44%, rgb(203, 93, 254) 47%, rgb(212, 102, 255) 50%, rgb(216, 117, 255) 53%, rgb(222, 133, 255) 56%, rgb(226, 148, 255) 59%, rgb(231, 158, 255) 62%, rgb(236, 173, 255) 66%, rgb(240, 189, 255) 69%, rgb(243, 199, 255) 73%, rgb(246, 214, 255) 77%, rgb(250, 230, 255) 81%, rgb(252, 240, 255) 87%, rgb(255, 255, 255) 100%)",
+
+                  backgroundSize: "100%",
+                  backgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
                 Transform Your Business with{" "}
                 <span className="text-primary">Nexily</span>
               </h1>

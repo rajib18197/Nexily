@@ -16,7 +16,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
+import "./FAQ.css";
 const services = [
   {
     title: "Digital Transformation",
@@ -78,17 +78,15 @@ export default function Services() {
   return (
     <section id="services" className="py-20 md:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="max-w-4xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Services
-            </h2>
-            <p className="text-lg text-muted-foreground">
+            <h2 className="heading-sub">Services</h2>
+            <p className="text-[30px] font-bold text-muted-foreground">
               We offer a wide range of services to help your business thrive in
               the digital age.
             </p>

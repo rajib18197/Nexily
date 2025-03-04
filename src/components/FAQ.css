@@ -111,3 +111,44 @@
   box-shadow: 0 0 0 transparent, 0 0 0 transparent,
     0 0 3rem rgba(76, 103, 150, 0.3);
 }
+
+.heading-sub {
+  /* font-family: "Arvo", serif; */
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #28b485;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.market {
+  /* background: linear-gradient(
+    45deg,
+    #00308f,
+    #0056b3,
+    #007fff,
+    #00a6ff,
+    #bfdfff
+  ); */
+  /* background-size: 300% 300%;
+  background-size: 100%;
+  background-clip: text;
+  color: transparent; */
+  /* animation: gradientMove 5s ease infinite; */
+  /* backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3); */
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

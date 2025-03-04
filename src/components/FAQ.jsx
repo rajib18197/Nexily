@@ -40,21 +40,21 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="py-12 px-6 bg-gray-100">
-      <div className="text-center max-w-4xl mx-auto mb-16">
+    <section className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Have Question in Mind?
-          </h2>
-          <p className="text-lg text-muted-foreground">Check Them all Here!</p>
+          <h2 className="heading-sub">Have Question in Mind?</h2>
+          <p className="text-[30px] font-bold text-muted-foreground">
+            Check them all to see if it's already compiled in here
+          </p>
         </motion.div>
       </div>
-      <div className="max-w-5xl mx-auto">
+      <div className="" style={{ width: "80%", margin: "0 auto" }}>
         {faqs.map(({ id, question, answer }, i) => (
           <div
             className={`question ${openQuestion === id ? "open" : undefined}`}

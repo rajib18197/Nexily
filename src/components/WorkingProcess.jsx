@@ -46,17 +46,15 @@ export default function WorkingProcess() {
   return (
     <section id="process" className="py-20 md:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="max-w-4xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Working Process
-            </h2>
-            <p className="text-lg text-muted-foreground">
+            <h2 className="heading-sub">Working Process</h2>
+            <p className="text-[30px] font-bold text-muted-foreground">
               We follow a structured approach to deliver exceptional results for
               our clients.
             </p>

@@ -53,17 +53,15 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-20 md:py-32 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="max-w-4xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What Our Clients Say
-            </h2>
-            <p className="text-lg text-muted-foreground">
+            <h2 className="heading-sub">What Our Clients Say</h2>
+            <p className="text-[30px] font-bold text-muted-foreground">
               Don't just take our word for it. Here's what our clients have to
               say about working with Nexily.
             </p>
@@ -71,11 +69,13 @@ export default function Testimonials() {
         </div>
 
         <div
-          className="max-w-6xl"
+          className=""
           style={{
             boxShadow:
               "0 0 0 transparent,0 0 0 transparent, 0 0 3rem rgba(76, 103, 150, 0.3)",
             padding: "30px 0",
+            width: "80%",
+            margin: "0 auto",
           }}
         >
           <div className="relative">
@@ -88,13 +88,16 @@ export default function Testimonials() {
                   <div key={index} className="w-full flex-shrink-0">
                     <Card className="border-none bg-card">
                       <CardContent className="p-8 md:p-10">
-                        <div className="mb-6">
+                        {/* <div className="mb-6">
                           <Quote
                             className="h-10 w-10 text-primary/20"
                             style={{ color: "hsl(221.2 83.2% 53.3%)" }}
                           />
-                        </div>
-                        <p className="text-lg md:text-xl mb-8 italic">
+                        </div> */}
+                        <p
+                          className="text-lg md:text-xl mb-8"
+                          style={{ lineHeight: "1.7" }}
+                        >
                           "{testimonial.quote}"
                         </p>
                         <div
@@ -135,6 +138,11 @@ export default function Testimonials() {
                 size="icon"
                 onClick={prevTestimonial}
                 aria-label="Previous testimonial"
+                style={{
+                  background: `hsl(221.2 83.2% 53.3%)`,
+                  color: "white",
+                  cursor: "pointer",
+                }}
               >
                 <ChevronLeft className="h-4 w-4" />
               </Button>
@@ -155,6 +163,11 @@ export default function Testimonials() {
                 size="icon"
                 onClick={nextTestimonial}
                 aria-label="Next testimonial"
+                style={{
+                  background: `hsl(221.2 83.2% 53.3%)`,
+                  color: "white",
+                  cursor: "pointer",
+                }}
               >
                 <ChevronRight className="h-4 w-4" />
               </Button>
