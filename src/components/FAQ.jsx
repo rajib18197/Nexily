@@ -40,62 +40,64 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto mb-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="heading-sub">Have Question in Mind?</h2>
-          <p className="text-[30px] font-bold text-muted-foreground">
-            Check them all to see if it's already compiled in here
-          </p>
-        </motion.div>
-      </div>
-      <div className="" style={{ width: "80%", margin: "0 auto" }}>
-        {faqs.map(({ id, question, answer }, i) => (
-          <div
-            className={`question ${openQuestion === id ? "open" : undefined}`}
-            key={id}
-            onClick={() => toggleQuestion(id)}
+    <section id="faq" className="py-20 md:py-32">
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
           >
-            <div className="question__intro">
-              <p className="question__number">0{i + 1}</p>
-              <p className="question__name">{question}</p>
-              <button className="question__btn">
-                <PlusIcon />
-              </button>
-            </div>
-            {openQuestion === id && (
-              <div className="question__box hidden-box">
-                <div className="question__description">
-                  <p className="question__description--answer">{answer}</p>
-                  <ul>
-                    <li>
-                      Millions of Business Person are already making their lifes
-                      simpler
-                    </li>
-                    <li>
-                      Millions of Business Person are already making their lifes
-                      simpler
-                    </li>
-                    <li>
-                      Millions of Business Person are already making their lifes
-                      simpler
-                    </li>
-                    <li>
-                      Millions of Business Person are already making their lifes
-                      simpler
-                    </li>
-                  </ul>
-                </div>
+            <h2 className="heading-sub">Have Question in Mind?</h2>
+            <p className="text-[30px] font-bold text-muted-foreground">
+              Check them all to see if it's already compiled in here
+            </p>
+          </motion.div>
+        </div>
+        <div className="" style={{ width: "80%", margin: "0 auto" }}>
+          {faqs.map(({ id, question, answer }, i) => (
+            <div
+              className={`question ${openQuestion === id ? "open" : undefined}`}
+              key={id}
+              onClick={() => toggleQuestion(id)}
+            >
+              <div className="question__intro">
+                <p className="question__number">0{i + 1}</p>
+                <p className="question__name">{question}</p>
+                <button className="question__btn">
+                  <PlusIcon />
+                </button>
               </div>
-            )}
-          </div>
-        ))}
-      </div>
+              {openQuestion === id && (
+                <div className="question__box hidden-box">
+                  <div className="question__description">
+                    <p className="question__description--answer">{answer}</p>
+                    <ul>
+                      <li>
+                        Millions of Business Person are already making their
+                        lifes simpler
+                      </li>
+                      <li>
+                        Millions of Business Person are already making their
+                        lifes simpler
+                      </li>
+                      <li>
+                        Millions of Business Person are already making their
+                        lifes simpler
+                      </li>
+                      <li>
+                        Millions of Business Person are already making their
+                        lifes simpler
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
     </section>
   );
 }
