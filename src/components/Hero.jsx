@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle } from "lucide-react";
+import StatsSection from "./animatedCounter/Stats";
 
 export default function Hero() {
   const features = ["Innovative Solutions", "Expert Team", "24/7 Support"];
@@ -19,7 +20,7 @@ export default function Hero() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
           <div className="flex-1 max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -27,11 +28,12 @@ export default function Hero() {
               transition={{ duration: 0.5 }}
             >
               <h1
-                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 market"
+                className="text-4xl md:text-5xl mt-4 lg:text-6xl font-bold tracking-tight mb-6 market"
                 style={{
                   backgroundColor: "rgb(255, 178, 62)",
-                  backgroundImage:
-                    "linear-gradient(45deg, rgb(115, 43, 247) 0%, rgb(125, 48, 248) 13%, rgb(134, 52, 249) 19%, rgb(143, 57, 249) 23%, rgb(155, 66, 250) 27%, rgb(164, 70, 251) 31%, rgb(172, 75, 251) 34%, rgb(180, 79, 252) 38%, rgb(188, 83, 253) 41%, rgb(196, 88, 253) 44%, rgb(203, 93, 254) 47%, rgb(212, 102, 255) 50%, rgb(216, 117, 255) 53%, rgb(222, 133, 255) 56%, rgb(226, 148, 255) 59%, rgb(231, 158, 255) 62%, rgb(236, 173, 255) 66%, rgb(240, 189, 255) 69%, rgb(243, 199, 255) 73%, rgb(246, 214, 255) 77%, rgb(250, 230, 255) 81%, rgb(252, 240, 255) 87%, rgb(255, 255, 255) 100%)",
+                  backgroundColor: "hsl(221.2 83.2% 53.3%)",
+                  // backgroundImage:
+                  //   "linear-gradient(45deg, rgb(115, 43, 247) 0%, rgb(125, 48, 248) 13%, rgb(134, 52, 249) 19%, rgb(143, 57, 249) 23%, rgb(155, 66, 250) 27%, rgb(164, 70, 251) 31%, rgb(172, 75, 251) 34%, rgb(180, 79, 252) 38%, rgb(188, 83, 253) 41%, rgb(196, 88, 253) 44%, rgb(203, 93, 254) 47%, rgb(212, 102, 255) 50%, rgb(216, 117, 255) 53%, rgb(222, 133, 255) 56%, rgb(226, 148, 255) 59%, rgb(231, 158, 255) 62%, rgb(236, 173, 255) 66%, rgb(240, 189, 255) 69%, rgb(243, 199, 255) 73%, rgb(246, 214, 255) 77%, rgb(250, 230, 255) 81%, rgb(252, 240, 255) 87%, rgb(255, 255, 255) 100%)",
 
                   backgroundSize: "100%",
                   backgroundClip: "text",
@@ -71,15 +73,17 @@ export default function Hero() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <CheckCircle
-                      className="h-5 w-5 text-primary"
-                      style={{ color: "hsl(221.2 83.2% 53.3%)" }}
-                    />
-                    <span className="text-sm font-medium">{feature}</span>
-                  </div>
-                ))}
+                {/* {features.map((feature, index) => (
+                  // <div key={index} className="flex items-center gap-2">
+                  //   <CheckCircle
+                  //     className="h-5 w-5 text-primary"
+                  //     style={{ color: "hsl(221.2 83.2% 53.3%)" }}
+                  //   />
+                  //   <span className="text-sm font-medium">{feature}</span>
+                  // </div>
+                  // <AnimatedCounter key={index} />
+                  ))} */}
+                <StatsSection />
               </div>
             </motion.div>
           </div>
