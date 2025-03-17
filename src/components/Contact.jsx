@@ -406,26 +406,82 @@ export default function ContactFormSection() {
                         >
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="digital-transformation">
+                        <SelectContent
+                          style={{
+                            background: "hsl(221.2 83.2% 53.3%)",
+                            color: "white",
+                          }}
+                        >
+                          <SelectItem
+                            value="digital-transformation"
+                            style={{
+                              background: "white",
+                              color: "black",
+                              marginBottom: "4px",
+                            }}
+                          >
                             Digital Transformation
                           </SelectItem>
-                          <SelectItem value="data-analytics">
+                          <SelectItem
+                            value="data-analytics"
+                            style={{
+                              background: "white",
+                              color: "black",
+                              marginBottom: "4px",
+                            }}
+                          >
                             Data Analytics
                           </SelectItem>
-                          <SelectItem value="mobile-development">
+                          <SelectItem
+                            value="mobile-development"
+                            style={{
+                              background: "white",
+                              color: "black",
+                              marginBottom: "4px",
+                            }}
+                          >
                             Mobile Development
                           </SelectItem>
-                          <SelectItem value="web-solutions">
+                          <SelectItem
+                            value="web-solutions"
+                            style={{
+                              background: "white",
+                              color: "black",
+                              marginBottom: "4px",
+                            }}
+                          >
                             Web Solutions
                           </SelectItem>
-                          <SelectItem value="cybersecurity">
+                          <SelectItem
+                            value="cybersecurity"
+                            style={{
+                              background: "white",
+                              color: "black",
+                              marginBottom: "4px",
+                            }}
+                          >
                             Cybersecurity
                           </SelectItem>
-                          <SelectItem value="innovation-consulting">
+                          <SelectItem
+                            value="innovation-consulting"
+                            style={{
+                              background: "white",
+                              color: "black",
+                              marginBottom: "4px",
+                            }}
+                          >
                             Innovation Consulting
                           </SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
+                          <SelectItem
+                            value="other"
+                            style={{
+                              background: "white",
+                              color: "black",
+                              marginBottom: "4px",
+                            }}
+                          >
+                            Other
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                       {errors.service && (
