@@ -67,7 +67,14 @@ export default function Navbar() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div
+            className="hidden md:block"
+            onClick={() => {
+              document
+                .getElementById("contact")
+                .scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             <Button
               style={{
                 background: `hsl(221.2 83.2% 53.3%)`,

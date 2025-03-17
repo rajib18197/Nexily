@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowDown, ArrowRight, CheckCircle } from "lucide-react";
 import StatsSection from "./animatedCounter/Stats";
 
 export default function Hero() {
@@ -59,6 +59,11 @@ export default function Hero() {
                     color: "white",
                     cursor: "pointer",
                   }}
+                  onClick={() => {
+                    document
+                      .getElementById("contact")
+                      .scrollIntoView({ behavior: "smooth" });
+                  }}
                 >
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -67,8 +72,14 @@ export default function Hero() {
                   size="lg"
                   variant="outline"
                   style={{ border: "2px solid #888", cursor: "pointer" }}
+                  onClick={() => {
+                    document
+                      .getElementById("services")
+                      .scrollIntoView({ behavior: "smooth" });
+                  }}
                 >
                   Learn More
+                  <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
               </div>
 
