@@ -7,11 +7,12 @@ import { Menu, X, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { name: "Home", href: "#" },
   { name: "Services", href: "#services" },
   { name: "Process", href: "#process" },
   { name: "Testimonials", href: "#testimonials" },
+  { name: "Blogs", href: "#blogs" },
   { name: "FAQ", href: "#faq" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {

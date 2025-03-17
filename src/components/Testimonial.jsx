@@ -61,7 +61,7 @@ export default function Testimonials() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="heading-sub">What Our Clients Say</h2>
-            <p className="text-[30px] font-bold text-muted-foreground">
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-[30px] font-bold text-muted-foreground leading-tight sm:leading-normal max-w-full sm:max-w-3xl sm:text-left">
               Don't just take our word for it. Here's what our clients have to
               say about working with Nexily.
             </p>

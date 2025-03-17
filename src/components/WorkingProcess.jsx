@@ -54,7 +54,7 @@ export default function WorkingProcess() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="heading-sub">Working Process</h2>
-            <p className="text-[30px] font-bold text-muted-foreground">
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-[30px] font-bold text-muted-foreground leading-tight sm:leading-normal max-w-full sm:max-w-3xl sm:text-left">
               We follow a structured approach to deliver exceptional results for
               our clients.
             </p>

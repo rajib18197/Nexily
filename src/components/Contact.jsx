@@ -191,7 +191,7 @@ export default function ContactFormSection() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="heading-sub">Ready to Transform Your Business?</h2>
-            <p className="text-[30px] font-bold text-muted-foreground">
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-[30px] font-bold text-muted-foreground leading-tight sm:leading-normal max-w-full sm:max-w-3xl sm:text-left">
               Have questions or need assistance? Reach out to our team and we'll
               get back to you as soon as possible.
             </p>

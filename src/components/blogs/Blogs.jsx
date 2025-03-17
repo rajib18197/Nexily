@@ -130,7 +130,7 @@ export default function BlogSection() {
   };
 
   return (
-    <section id="blog" className="py-20 md:py-32">
+    <section id="blogs" className="py-20 md:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto mb-16">
           <motion.div
@@ -140,7 +140,7 @@ export default function BlogSection() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="heading-sub">Latest Insights & News</h2>
-            <p className="text-[30px] font-bold text-muted-foreground">
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-[30px] font-bold text-muted-foreground leading-tight sm:leading-normal max-w-full sm:max-w-3xl sm:text-left">
               Stay updated with the latest trends, insights, and news in
               technology and digital innovation written by our members.
             </p>
