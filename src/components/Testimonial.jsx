@@ -104,7 +104,7 @@ export default function Testimonials() {
                           className="flex items-center"
                           style={{
                             width: "max-content",
-                            margin: "40px 0 0 70%",
+                            margin: "60px 0 0 0",
                           }}
                         >
                           <Avatar className="h-12 w-12 mr-4">

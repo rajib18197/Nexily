@@ -37,7 +37,13 @@ export default function BlogCard({ post, index }) {
             />
           </div>
           <div className="absolute top-4 left-4">
-            <span className="inline-block bg-background/80 backdrop-blur-sm text-foreground text-xs font-medium px-3 py-1 rounded-full">
+            <span
+              className="inline-block bg-background/80 backdrop-blur-sm text-foreground text-xs font-medium px-3 py-1 rounded-full"
+              style={{
+                backgroundColor: "#101d28",
+                color: "#fff",
+              }}
+            >
               {post.category}
             </span>
           </div>

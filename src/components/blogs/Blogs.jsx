@@ -199,7 +199,7 @@ export default function BlogSection() {
                           <span
                             className="inline-block bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full"
                             style={{
-                              backgroundColor: "orangered",
+                              background: `hsl(221.2 83.2% 53.3%)`,
                               color: "white",
                             }}
                           >
@@ -208,8 +208,8 @@ export default function BlogSection() {
                           <span
                             className="inline-block ml-2 bg-muted text-muted-foreground text-sm font-medium px-3 py-1 rounded-full"
                             style={{
-                              backgroundColor: "#888",
-                              color: "#111",
+                              backgroundColor: "#101d28",
+                              color: "#fff",
                             }}
                           >
                             {post.category}
@@ -238,6 +238,8 @@ export default function BlogSection() {
                               background: `hsl(221.2 83.2% 53.3%)`,
                               color: "white",
                               cursor: "pointer",
+                              // backgroundColor: "#101d28",
+                              // color: "#fff",
                             }}
                           >
                             Read Article

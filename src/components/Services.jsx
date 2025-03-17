@@ -2,93 +2,107 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Layers,
-  BarChart3,
-  Smartphone,
-  Globe,
-  Shield,
-  Lightbulb,
-} from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import "./FAQ.css";
+import { ArrowRight } from "lucide-react";
 
-const services = [
-  {
-    title: "Digital Transformation",
-    description:
-      "Modernize your business with our comprehensive digital transformation services. We help organizations leverage cutting-edge technologies to streamline operations, enhance customer experiences, and drive growth in the digital era.",
-    icon: Layers,
-    color: "bg-chart-1/10 text-chart-1",
-    colorbg: "hsl(221.2 83.2% 53.3% / 0.1)",
-    colorText: "hsl(221.2 83.2% 53.3%)",
-  },
-  {
-    title: "Data Analytics",
-    description:
-      "Unlock insights from your data to make informed business decisions. Our data analytics services help you collect, process, and analyze data to identify patterns, trends, and opportunities that drive strategic decision-making and business growth.",
-    icon: BarChart3,
-    color: "bg-chart-2/10 text-chart-2",
-    colorbg: "hsl(221.2 83.2% 53.3% / 0.1)",
-    colorText: "hsl(221.2 83.2% 53.3%)",
-  },
-  {
-    title: "Mobile Development",
-    description:
-      "Create stunning, high-performance mobile applications for iOS and Android. Our expert developers build intuitive, feature-rich mobile apps that engage users, solve problems, and help your business reach customers wherever they are.",
-    icon: Smartphone,
-    color: "bg-chart-3/10 text-chart-3",
-    colorbg: "hsl(221.2 83.2% 53.3% / 0.1)",
-    colorText: "hsl(221.2 83.2% 53.3%)",
-  },
-  {
-    title: "Web Solutions",
-    description:
-      "Build responsive, modern web applications that engage your customers. From corporate websites to complex web applications, our web development team creates scalable, secure, and user-friendly solutions that represent your brand and drive conversions.",
-    icon: Globe,
-    color: "bg-chart-4/10 text-chart-4",
-    colorbg: "hsl(221.2 83.2% 53.3% / 0.1)",
-    colorText: "hsl(221.2 83.2% 53.3%)",
-  },
-  {
-    title: "Cybersecurity",
-    description:
-      "Protect your business with our advanced cybersecurity solutions. We provide comprehensive security services including threat assessment, vulnerability management, security monitoring, and incident response to safeguard your digital assets and customer data.",
-    icon: Shield,
-    color: "bg-chart-5/10 text-chart-5",
-    colorbg: "hsl(221.2 83.2% 53.3% / 0.1)",
-    colorText: "hsl(221.2 83.2% 53.3%)",
-  },
-  {
-    title: "Innovation Consulting",
-    description:
-      "Stay ahead of the curve with our strategic innovation consulting. We help businesses identify opportunities for innovation, develop new products and services, and implement transformative strategies that create competitive advantages in rapidly evolving markets.",
-    icon: Lightbulb,
-    color: "bg-primary/10 text-primary",
-    colorbg: "hsl(221.2 83.2% 53.3% / 0.1)",
-    colorText: "hsl(221.2 83.2% 53.3%)",
-  },
-];
-
-export default function Services() {
-  // State to track which card is being hovered
+export default function ServicesSection() {
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  // Function to truncate text
-  const truncateText = (text, maxLength = 70) => {
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + "...";
-  };
+  const services = [
+    {
+      id: 1,
+      icon: (
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+            fill="white"
+            fillOpacity="0.2"
+          />
+          <path
+            d="M12 18.5C15.5899 18.5 18.5 15.5899 18.5 12C18.5 8.41015 15.5899 5.5 12 5.5C8.41015 5.5 5.5 8.41015 5.5 12C5.5 15.5899 8.41015 18.5 12 18.5Z"
+            fill="white"
+          />
+        </svg>
+      ),
+      title: "Start Up Consultancy",
+      description:
+        "We provide expert guidance in business planning, funding, legal compliance, marketing, operations, technology, and growth strategy to accelerate startup",
+      bulletPoints: [
+        "Inbound Sales",
+        "Outbound Sales & Business Development",
+        "Account Based Sales",
+      ],
+      buttonText: "Get Started",
+    },
+    {
+      id: 2,
+      icon: (
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+            fill="white"
+          />
+        </svg>
+      ),
+      title: "Sales Consultancy",
+      description:
+        "We provide expert guidance in sales strategy, training, process optimisation, CRM, efficiency, and performance analysis to boost sales effectiveness and revenue growth.",
+      bulletPoints: [
+        "Inbound Sales",
+        "Outbound Sales & Business Development",
+        "Account Based Sales",
+      ],
+      buttonText: "Get Started",
+    },
+    {
+      id: 3,
+      icon: (
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M7 15H5V17H7V15Z" fill="white" />
+          <path d="M19 15H17V17H19V15Z" fill="white" />
+          <path d="M11 7H13V9H11V7Z" fill="white" />
+          <path d="M19 7H17V9H19V7Z" fill="white" />
+          <path d="M7 7H5V9H7V7Z" fill="white" />
+          <path d="M15 11H13V13H15V11Z" fill="white" />
+          <path d="M19 11H17V13H19V11Z" fill="white" />
+          <path d="M7 11H5V13H7V11Z" fill="white" />
+          <path d="M11 11H9V13H11V11Z" fill="white" />
+          <path d="M11 15H9V17H11V15Z" fill="white" />
+          <path d="M15 15H13V17H15V15Z" fill="white" />
+        </svg>
+      ),
+      title: "Marketing Consultancy",
+      description:
+        "We offer expert guidance in marketing strategy, branding, digital marketing, market research, campaign management, and customer analytics to drive brand awareness and maximize ROI",
+      bulletPoints: [
+        "Inbound Sales",
+        "Outbound Sales & Business Development",
+        "Account Based Sales",
+      ],
+      buttonText: "Get Started",
+    },
+  ];
 
   return (
-    <section id="services" className="py-20 md:py-32 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="w-full py-16 md:py-24">
+      <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -103,52 +117,70 @@ export default function Services() {
             </p>
           </motion.div>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <motion.div
-              key={index}
+              key={service.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
+              className="relative"
             >
-              <Card className="h-full border-none shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <CardHeader className="pb-2">
-                  <div
-                    className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${service.color}`}
+              <div
+                className="h-full rounded-xl p-6 flex flex-col"
+                style={{
+                  backgroundColor: "hsl(221.2 83.2% 53.3%)",
+                  color: "white",
+                }}
+              >
+                <div className="mb-4 w-10 h-10 rounded-full bg-[#3d4675] flex items-center justify-center">
+                  {service.icon}
+                </div>
+
+                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+
+                <p className="text-sm text-white mb-6">{service.description}</p>
+
+                {service.bulletPoints.length > 0 && (
+                  <ul className="mb-6 space-y-1 text-sm text-gray-100">
+                    {service.bulletPoints.map((point, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="mr-2 text-white">•</span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                <div className="mt-auto">
+                  <button
+                    className={`group flex text-center items-center justify-center text-sm font-medium ${
+                      hoveredCard === service.id
+                        ? "text-white"
+                        : "text-gray-300"
+                    } hover:text-white transition-colors`}
                     style={{
-                      background: `${service.colorbg}`,
-                      color: `${service.colorText}`,
+                      textAlign: "center",
+                      width: "100%",
+                      background: "white",
+                      color: "#101d28",
+                      padding: "10px 20px",
+                      borderRadius: "100px",
+                      cursor: "pointer",
                     }}
+                    onMouseEnter={() => setHoveredCard(service.id)}
+                    onMouseLeave={() => setHoveredCard(null)}
                   >
-                    <service.icon className="h-6 w-6" />
-                  </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">
-                    <div className="description-container">
-                      <div
-                        className={`description-text ${
-                          hoveredCard === index ? "expanded" : "collapsed"
-                        }`}
-                      >
-                        {service.description}
-                      </div>
-                      {/* {hoveredCard !== index &&
-                        service.description.length > 70 && (
-                          <span className="text-primary text-sm font-medium mt-1 block">
-                            Hover to read more
-                          </span>
-                        )} */}
-                    </div>
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                    {service.buttonText}
+                    <ArrowRight
+                      className={`ml-2 h-4 w-4 transition-transform ${
+                        hoveredCard === service.id ? "translate-x-1" : ""
+                      }`}
+                    />
+                  </button>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
