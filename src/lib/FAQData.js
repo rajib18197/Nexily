@@ -15,32 +15,32 @@ export async function getFAQData() {
     console.error("Error fetching FAQ data:", error);
 
     // Return default data if fetch fails
-    return [
-      {
-        id: 1,
-        question: "Do You Ship to countries Outside the Asia?",
-        answer:
-          "Yes, we do ship to countries outside Asia. Shipping costs and delivery times vary based on location.",
-      },
-      {
-        id: 2,
-        question: "Do You Ship to countries Outside the Asia?",
-        answer:
-          "Yes, we do ship to countries outside Asia. Shipping costs and delivery times vary based on location.",
-      },
-      {
-        id: 3,
-        question: "Do You Ship to countries Outside the Asia?",
-        answer:
-          "Yes, we do ship to countries outside Asia. Shipping costs and delivery times vary based on location.",
-      },
-      {
-        id: 4,
-        question: "Do You Ship to countries Outside the Asia?",
-        answer:
-          "Yes, we do ship to countries outside Asia. Shipping costs and delivery times vary based on location.",
-      },
-      // Add more questions here
-    ];
+    // return [
+    //   {
+    //     id: 1,
+    //     question: "Do You Ship to countries Outside the Asia?",
+    //     answer:
+    //       "Yes, we do ship to countries outside Asia. Shipping costs and delivery times vary based on location.",
+    //   },
+    //   {
+    //     id: 2,
+    //     question: "Do You Ship to countries Outside the Asia?",
+    //     answer:
+    //       "Yes, we do ship to countries outside Asia. Shipping costs and delivery times vary based on location.",
+    //   },
+    //   {
+    //     id: 3,
+    //     question: "Do You Ship to countries Outside the Asia?",
+    //     answer:
+    //       "Yes, we do ship to countries outside Asia. Shipping costs and delivery times vary based on location.",
+    //   },
+    //   {
+    //     id: 4,
+    //     question: "Do You Ship to countries Outside the Asia?",
+    //     answer:
+    //       "Yes, we do ship to countries outside Asia. Shipping costs and delivery times vary based on location.",
+    //   },
+    //   // Add more questions here
+    // ];
   }
 }

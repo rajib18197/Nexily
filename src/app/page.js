@@ -1,19 +1,22 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
+import ServicesSection from "@/components/Services";
 import WorkingProcess from "@/components/WorkingProcess";
 import Testimonials from "@/components/Testimonial";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/footer";
 import BlogSection from "@/components/blogs/Blogs";
 import ContactFormSection from "@/components/Contact";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Navbar />
       <Hero />
-      <Services />
+      <Suspense fallback={<h2>Loading</h2>}>
+        <ServicesSection />
+      </Suspense>
       <WorkingProcess />
       <Testimonials />
       <BlogSection />

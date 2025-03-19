@@ -10,9 +10,6 @@ export default function FAQClient({ faqs, topPart, hiddenPart }) {
     setOpenQuestion(openQuestion === id ? null : id);
   };
 
-  const TopComponent = topPart;
-  const HiddenComponent = hiddenPart;
-
   return (
     <div className="" style={{ width: "80%", margin: "0 auto" }}>
       {faqs.map(({ id, question, answer }, i) => (
@@ -21,8 +18,8 @@ export default function FAQClient({ faqs, topPart, hiddenPart }) {
           key={id}
           onClick={() => toggleQuestion(id)}
         >
-          <TopComponent question={question} />
-          {openQuestion === id && <HiddenComponent answer={answer} />}
+          {topPart[i]}
+          {openQuestion === id && hiddenPart[i]}
         </div>
       ))}
     </div>

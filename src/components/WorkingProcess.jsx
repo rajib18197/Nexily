@@ -1,6 +1,7 @@
 import { getProcessData } from "@/lib/processData";
 import { motion } from "framer-motion";
 import { Lightbulb } from "lucide-react";
+import { Motion, MotionHeading } from "./Motion";
 
 export default async function WorkingProcess() {
   const steps = await getProcessData();
@@ -8,18 +9,13 @@ export default async function WorkingProcess() {
     <section id="process" className="py-20 md:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <MotionHeading>
             <h2 className="heading-sub">Working Process</h2>
             <p className="text-xl sm:text-2xl md:text-3xl lg:text-[30px] font-bold text-muted-foreground leading-tight sm:leading-normal max-w-full sm:max-w-3xl sm:text-left">
               We follow a structured approach to deliver exceptional results for
               our clients.
             </p>
-          </motion.div>
+          </MotionHeading>
         </div>
 
         <div className="relative">
@@ -27,12 +23,8 @@ export default async function WorkingProcess() {
 
           <div className="space-y-12 md:space-y-0 relative">
             {steps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+              <Motion
+                index={index}
                 className={`md:flex items-center ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
@@ -68,7 +60,7 @@ export default async function WorkingProcess() {
                 </div>
 
                 <div className="md:w-1/2" />
-              </motion.div>
+              </Motion>
             ))}
           </div>
         </div>
@@ -76,64 +68,3 @@ export default async function WorkingProcess() {
     </section>
   );
 }
-
-// "dependencies": {
-//     "@hookform/resolvers": "^3.9.0",
-//     "@next/swc-wasm-nodejs": "13.5.1",
-//     "@radix-ui/react-accordion": "^1.2.0",
-//     "@radix-ui/react-alert-dialog": "^1.1.1",
-//     "@radix-ui/react-aspect-ratio": "^1.1.0",
-//     "@radix-ui/react-avatar": "^1.1.0",
-//     "@radix-ui/react-checkbox": "^1.1.1",
-//     "@radix-ui/react-collapsible": "^1.1.0",
-//     "@radix-ui/react-context-menu": "^2.2.1",
-//     "@radix-ui/react-dialog": "^1.1.1",
-//     "@radix-ui/react-dropdown-menu": "^2.1.1",
-//     "@radix-ui/react-hover-card": "^1.1.1",
-//     "@radix-ui/react-label": "^2.1.0",
-//     "@radix-ui/react-menubar": "^1.1.1",
-//     "@radix-ui/react-navigation-menu": "^1.2.0",
-//     "@radix-ui/react-popover": "^1.1.1",
-//     "@radix-ui/react-progress": "^1.1.0",
-//     "@radix-ui/react-radio-group": "^1.2.0",
-//     "@radix-ui/react-scroll-area": "^1.1.0",
-//     "@radix-ui/react-select": "^2.1.1",
-//     "@radix-ui/react-separator": "^1.1.0",
-//     "@radix-ui/react-slider": "^1.2.0",
-//     "@radix-ui/react-slot": "^1.1.0",
-//     "@radix-ui/react-switch": "^1.1.0",
-//     "@radix-ui/react-tabs": "^1.1.0",
-//     "@radix-ui/react-toast": "^1.2.1",
-//     "@radix-ui/react-toggle": "^1.1.0",
-//     "@radix-ui/react-toggle-group": "^1.1.0",
-//     "@radix-ui/react-tooltip": "^1.1.2",
-//     "@types/node": "20.6.2",
-//     "@types/react": "18.2.22",
-//     "@types/react-dom": "18.2.7",
-//     "autoprefixer": "10.4.15",
-//     "class-variance-authority": "^0.7.0",
-//     "clsx": "^2.1.1",
-//     "cmdk": "^1.0.0",
-//     "date-fns": "^3.6.0",
-//     "embla-carousel-react": "^8.3.0",
-//     "eslint": "8.49.0",
-//     "eslint-config-next": "13.5.1",
-//     "framer-motion": "^11.0.8",
-//     "input-otp": "^1.2.4",
-//     "lucide-react": "^0.446.0",
-//     "next": "13.5.1",
-//     "next-themes": "^0.3.0",
-//     "postcss": "8.4.30",
-//     "react": "18.2.0",
-//     "react-day-picker": "^8.10.1",
-//     "react-dom": "18.2.0",
-//     "react-hook-form": "^7.53.0",
-//     "react-resizable-panels": "^2.1.3",
-//     "recharts": "^2.12.7",
-//     "tailwind-merge": "^2.5.2",
-//     "tailwindcss": "3.3.3",
-//     "tailwindcss-animate": "^1.0.7",
-//     "typescript": "5.2.2",
-//     "vaul": "^0.9.9",
-//     "zod": "^3.23.8"
-//   }
