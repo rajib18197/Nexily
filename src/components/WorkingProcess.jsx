@@ -30,6 +30,7 @@ export default async function WorkingProcess() {
                 }`}
               >
                 <div
+                  key={step._id}
                   className={`md:w-1/2 ${
                     index % 2 === 0 ? "md:pr-16 lg:pr-24" : "md:pl-16 lg:pl-24"
                   } md:text-${index % 2 === 0 ? "right" : "left"}`}

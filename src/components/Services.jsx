@@ -22,7 +22,7 @@ async function ServicesSection() {
             <Motion index={index}>
               <div
                 className="h-full rounded-xl p-6 flex flex-col"
-                key={service.id}
+                key={service._id}
                 style={{
                   backgroundColor: "hsl(221.2 83.2% 53.3%)",
                   color: "white",

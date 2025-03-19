@@ -47,11 +47,11 @@ export default async function FAQSection() {
         </div>
         <FAQClient
           faqs={faqs}
-          topPart={faqs.map(({ question }, i) => (
-            <FAQTop question={question} i={i} />
+          topPart={faqs.map(({ _id, question }, i) => (
+            <FAQTop question={question} i={i} key={_id} />
           ))}
-          hiddenPart={faqs.map(({ answer }) => (
-            <FAQHidden answer={answer} />
+          hiddenPart={faqs.map(({ _id, answer }) => (
+            <FAQHidden answer={answer} key={_id} />
           ))}
         />
       </section>
