@@ -1,7 +1,10 @@
+const url = `https://nexily.vercel.app/api/process`;
+// const url = `http://localhost:3000/api/process`;
+
 export async function getProcessData() {
   try {
     // Use relative URL for API calls from server components
-    const response = await fetch("http://localhost:3000/api/process", {
+    const response = await fetch("url", {
       method: "GET",
     });
 

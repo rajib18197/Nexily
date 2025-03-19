@@ -22,7 +22,7 @@ export default function AnimatedHeroContent({ heroData }) {
           }}
         >
           {heroData.heading}{" "}
-          <span className="text-primary">{heroData.highlightedText}</span>
+          {/* <span className="text-primary">{heroData.highlightedText}</span> */}
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground mb-8">
           {heroData.description}

@@ -1,7 +1,10 @@
+const url = `https://nexily.vercel.app/api/testimonials`;
+// const url = `http://localhost:3000/api/testimonials`;
+
 export async function getTestimonialsData() {
   try {
     // Use relative URL for API calls from server components
-    const response = await fetch("http://localhost:3000/api/testimonials", {
+    const response = await fetch(url, {
       method: "GET",
     });
 
