@@ -4,29 +4,34 @@ import { motion } from "framer-motion";
 import { Users, Award, Building, Globe } from "lucide-react";
 import AnimatedCounter from "./AnimatedCounter";
 
-export default function StatsSection() {
+export default function StatsSection({
+  clients,
+  yearsOfExperience,
+  projects,
+  countriesServed,
+}) {
   const stats = [
     {
       icon: <Users className="h-8 w-8 text-primary" />,
-      value: 500,
+      value: clients,
       label: "Happy Clients",
       suffix: "+",
     },
     {
       icon: <Award className="h-8 w-8 text-primary" />,
-      value: 10,
+      value: yearsOfExperience,
       label: "Years Experience",
       suffix: "+",
     },
     {
       icon: <Building className="h-8 w-8 text-primary" />,
-      value: 150,
+      value: projects,
       label: "Projects Completed",
       suffix: "+",
     },
     {
       icon: <Globe className="h-8 w-8 text-primary" />,
-      value: 25,
+      value: countriesServed,
       label: "Countries Served",
       suffix: "+",
     },
@@ -39,15 +44,10 @@ export default function StatsSection() {
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              //   initial={{ opacity: 0, y: 20 }}
-              //   whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
               className="flex flex-col items-center text-center"
             >
-              {/* <div className="mb-4 p-4 rounded-full bg-primary/10">
-                {stat.icon}
-              </div> */}
               <h3 className="text-xl font-bold mb-1">
                 <AnimatedCounter
                   end={stat.value}

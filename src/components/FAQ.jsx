@@ -1,8 +1,8 @@
-"use client";
-import { useState } from "react";
-import { PlusIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import "./FAQ.css";
+import FAQClient from "./FAQClient";
+import { FAQHidden, FAQTop } from "./FAQContents";
+import { getFAQData } from "@/lib/FAQData";
 const faqs = [
   {
     id: 1,
@@ -31,13 +31,8 @@ const faqs = [
   // Add more questions here
 ];
 
-export default function FAQSection() {
-  const [openQuestion, setOpenQuestion] = useState(null);
-  console.log(openQuestion);
-  const toggleQuestion = (id) => {
-    console.log(id);
-    setOpenQuestion(openQuestion === id ? null : id);
-  };
+export default async function FAQSection() {
+  const faqs = await getFAQData();
 
   return (
     <section id="faq" className="py-20 md:py-32">
@@ -55,48 +50,11 @@ export default function FAQSection() {
             </p>
           </motion.div>
         </div>
-        <div className="" style={{ width: "80%", margin: "0 auto" }}>
-          {faqs.map(({ id, question, answer }, i) => (
-            <div
-              className={`question ${openQuestion === id ? "open" : undefined}`}
-              key={id}
-              onClick={() => toggleQuestion(id)}
-            >
-              <div className="question__intro">
-                <p className="question__number">0{i + 1}</p>
-                <p className="question__name">{question}</p>
-                <button className="question__btn">
-                  <PlusIcon />
-                </button>
-              </div>
-              {openQuestion === id && (
-                <div className="question__box hidden-box">
-                  <div className="question__description">
-                    <p className="question__description--answer">{answer}</p>
-                    <ul>
-                      <li>
-                        Millions of Business Person are already making their
-                        lifes simpler
-                      </li>
-                      <li>
-                        Millions of Business Person are already making their
-                        lifes simpler
-                      </li>
-                      <li>
-                        Millions of Business Person are already making their
-                        lifes simpler
-                      </li>
-                      <li>
-                        Millions of Business Person are already making their
-                        lifes simpler
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+        <FAQClient
+          faqs={faqs}
+          topPart={<FAQTop />}
+          hiddenPart={<FAQHidden />}
+        />
       </section>
     </section>
   );

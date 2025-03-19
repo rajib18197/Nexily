@@ -1,48 +1,9 @@
-"use client";
-
+import { getProcessData } from "@/lib/processData";
 import { motion } from "framer-motion";
-import { Search, Lightbulb, Code, Rocket } from "lucide-react";
+import { Lightbulb } from "lucide-react";
 
-const steps = [
-  {
-    title: "Discovery",
-    description:
-      "We start by understanding your business needs, goals, and challenges through in-depth consultations.",
-    icon: Search,
-    color: "bg-chart-1/10 text-chart-1 border-chart-1/20",
-    colorbg: "hsl(12 76% 61% / 0.1)",
-    colorText: "hsl(12 76% 61%)",
-  },
-  {
-    title: "Strategy",
-    description:
-      "Our team develops a comprehensive strategy tailored to your specific requirements and objectives.",
-    icon: Lightbulb,
-    color: "bg-chart-2/10 text-chart-2 border-chart-2/20",
-    colorbg: "hsl(173 58% 39% / 0.1)",
-    colorText: "hsl(173 58% 39%)",
-  },
-  {
-    title: "Development",
-    description:
-      "We bring your vision to life with cutting-edge technology and industry best practices.",
-    icon: Code,
-    color: "bg-chart-3/10 text-chart-3 border-chart-3/20",
-    colorbg: "hsl(197 37% 24%/ 0.1)",
-    colorText: "hsl(197 37% 24%)",
-  },
-  {
-    title: "Launch & Support",
-    description:
-      "We ensure a smooth launch and provide ongoing support to help your business thrive.",
-    icon: Rocket,
-    color: "bg-chart-4/10 text-chart-4 border-chart-4/20",
-    colorbg: "hsl(43 74% 66% / 0.1)",
-    colorText: "hsl(43 74% 66%)",
-  },
-];
-
-export default function WorkingProcess() {
+export default async function WorkingProcess() {
+  const steps = await getProcessData();
   return (
     <section id="process" className="py-20 md:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,7 +23,6 @@ export default function WorkingProcess() {
         </div>
 
         <div className="relative">
-          {/* Connection line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border hidden md:block transform -translate-x-1/2" />
 
           <div className="space-y-12 md:space-y-0 relative">
@@ -83,13 +43,13 @@ export default function WorkingProcess() {
                   } md:text-${index % 2 === 0 ? "right" : "left"}`}
                 >
                   <div
-                    className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-4 ${step.color}`}
+                    className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-4`}
                     style={{
-                      background: `${step.colorbg}`,
-                      color: `${step.colorText}`,
+                      color: "hsl(12 76% 61%)",
+                      background: "hsl(12 76% 61% / 0.1)",
                     }}
                   >
-                    <step.icon className="h-6 w-6" />
+                    <Lightbulb className="h-6 w-6" />
                   </div>
                   <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
                   <p className="text-muted-foreground">{step.description}</p>
@@ -97,10 +57,10 @@ export default function WorkingProcess() {
 
                 <div className="hidden md:block md:w-0 relative">
                   <div
-                    className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-2 ${step.color} bg-background z-10 flex items-center justify-center`}
+                    className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-2 bg-chart-1/10 text-chart-1 border-chart-1/20bg-background z-10 flex items-center justify-center`}
                     style={{
-                      background: `${step.colorbg}`,
-                      color: `${step.colorText}`,
+                      color: "hsl(12 76% 61%)",
+                      background: "hsl(12 76% 61% / 0.1)",
                     }}
                   >
                     <span className="font-bold">{index + 1}</span>

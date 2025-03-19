@@ -1,11 +1,7 @@
-"use client";
-
-import { useState } from "react";
+import { getTestimonialsData } from "@/lib/TestimonialsData";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import TestimonialClient from "./TestimonialClient";
+import TestimonialBox from "./TestimonialBox";
 
 const testimonials = [
   {
@@ -37,18 +33,8 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
-    );
-  };
+export default async function Testimonials() {
+  const testimonials = await getTestimonialsData();
 
   return (
     <section id="testimonials" className="py-20 md:py-32 bg-muted/30">
@@ -67,114 +53,11 @@ export default function Testimonials() {
             </p>
           </motion.div>
         </div>
-
-        <div
-          className=""
-          style={{
-            boxShadow:
-              "0 0 0 transparent,0 0 0 transparent, 0 0 3rem rgba(76, 103, 150, 0.3)",
-            padding: "30px 0",
-            width: "80%",
-            margin: "0 auto",
-          }}
-        >
-          <div className="relative">
-            <div className="overflow-hidden">
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-              >
-                {testimonials.map((testimonial, index) => (
-                  <div key={index} className="w-full flex-shrink-0">
-                    <Card className="border-none bg-card">
-                      <CardContent className="p-8 md:p-10">
-                        {/* <div className="mb-6">
-                          <Quote
-                            className="h-10 w-10 text-primary/20"
-                            style={{ color: "hsl(221.2 83.2% 53.3%)" }}
-                          />
-                        </div> */}
-                        <p
-                          className="text-lg md:text-xl mb-8"
-                          style={{ lineHeight: "1.7" }}
-                        >
-                          "{testimonial.quote}"
-                        </p>
-                        <div
-                          className="flex items-center"
-                          style={{
-                            width: "max-content",
-                            margin: "60px 0 0 0",
-                          }}
-                        >
-                          <Avatar className="h-12 w-12 mr-4">
-                            <AvatarImage
-                              src={testimonial.avatar}
-                              alt={testimonial.author}
-                            />
-                            <AvatarFallback>
-                              {testimonial.initials}
-                            </AvatarFallback>
-                          </Avatar>
-                          <div>
-                            <h4 className="font-semibold">
-                              {testimonial.author}
-                            </h4>
-                            <p className="text-sm text-muted-foreground">
-                              {testimonial.position}
-                            </p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex justify-center gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={prevTestimonial}
-                aria-label="Previous testimonial"
-                style={{
-                  background: `hsl(221.2 83.2% 53.3%)`,
-                  color: "white",
-                  cursor: "pointer",
-                }}
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <div className="flex items-center space-x-2">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                      index === currentIndex ? "bg-primary" : "bg-primary/20"
-                    }`}
-                    aria-label={`Go to testimonial ${index + 1}`}
-                  />
-                ))}
-              </div>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={nextTestimonial}
-                aria-label="Next testimonial"
-                style={{
-                  background: `hsl(221.2 83.2% 53.3%)`,
-                  color: "white",
-                  cursor: "pointer",
-                }}
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        </div>
       </div>
+
+      <TestimonialClient testimonials={testimonials}>
+        <TestimonialBox testimonials={testimonials} />
+      </TestimonialClient>
     </section>
   );
 }
