@@ -1,9 +1,12 @@
-import { fetchHeroData } from "@/lib/fetchHeroData";
 import AnimatedHeroContent from "./hero/AnimatedHeroContent";
 import AnimatedHeroImage from "./hero/AnimatedHeroImage";
+import connectToDatabase from "@/lib/mongodb";
+import Hero from "@/models/Hero";
 
-export default async function Hero() {
-  const heroData = await fetchHeroData();
+export default async function HeroSection() {
+  await connectToDatabase();
+  const heroRes = await Hero.findOne({ isActive: true });
+  const heroData = JSON.parse(JSON.stringify(heroRes));
 
   return (
     <section className="relative pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden">

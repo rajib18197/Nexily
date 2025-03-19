@@ -1,10 +1,13 @@
-import { getProcessData } from "@/lib/processData";
-import { motion } from "framer-motion";
 import { Lightbulb } from "lucide-react";
 import { Motion, MotionHeading } from "./Motion";
+import connectToDatabase from "@/lib/mongodb";
+import Process from "@/models/Process";
 
 export default async function WorkingProcess() {
-  const steps = await getProcessData();
+  await connectToDatabase();
+
+  const processes = await Process.find({ isActive: true }).sort({ order: 1 });
+  const steps = JSON.parse(JSON.stringify(processes));
   return (
     <section id="process" className="py-20 md:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

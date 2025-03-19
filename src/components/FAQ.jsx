@@ -3,6 +3,8 @@ import FAQClient from "./FAQClient";
 import { FAQHidden, FAQTop } from "./FAQContents";
 import { getFAQData } from "@/lib/FAQData";
 import { MotionHeading } from "./Motion";
+import connectToDatabase from "@/lib/mongodb";
+import FAQ from "@/models/FAQ";
 // const faqs = [
 //   {
 //     id: 1,
@@ -32,7 +34,10 @@ import { MotionHeading } from "./Motion";
 // ];
 
 export default async function FAQSection() {
-  const faqs = await getFAQData();
+  await connectToDatabase();
+
+  const faqsRes = await FAQ.find({ isActive: true }).sort({ order: 1 });
+  const faqs = JSON.parse(JSON.stringify(faqsRes));
 
   return (
     <section id="faq" className="py-20 md:py-32">

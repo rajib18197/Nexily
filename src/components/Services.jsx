@@ -1,9 +1,13 @@
-import { getServicesData } from "@/lib/servicesData";
 import { ArrowRight } from "lucide-react";
 import { Motion, MotionHeading } from "./Motion";
+import connectToDatabase from "@/lib/mongodb";
+import Service from "@/models/Service";
 
 async function ServicesSection() {
-  const services = await getServicesData();
+  await connectToDatabase();
+
+  const servicesRes = await Service.find({ isActive: true }).sort({ order: 1 });
+  const services = JSON.parse(JSON.stringify(servicesRes));
 
   return (
     <section id="services" className="w-full py-16 md:py-24">

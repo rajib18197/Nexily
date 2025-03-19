@@ -1,7 +1,7 @@
 const url = `https://nexily.vercel.app/api/hero`;
 // const url = `http://localhost:3000/api/hero`;
 
-export async function fetchHeroData() {
+export async function fetchHeroData(url) {
   try {
     // Use relative URL for API calls from server components
     const response = await fetch(url, {

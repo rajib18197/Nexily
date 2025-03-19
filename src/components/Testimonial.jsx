@@ -1,7 +1,8 @@
-import { getTestimonialsData } from "@/lib/TestimonialsData";
 import TestimonialClient from "./TestimonialClient";
 import TestimonialBox from "./TestimonialBox";
 import { MotionHeading } from "./Motion";
+import connectToDatabase from "@/lib/mongodb";
+import Testimonial from "@/models/Testimonial";
 
 // const testimonials = [
 //   {
@@ -34,7 +35,13 @@ import { MotionHeading } from "./Motion";
 // ];
 
 export default async function Testimonials() {
-  const testimonials = await getTestimonialsData();
+  await connectToDatabase();
+
+  const testimonialsRes = await Testimonial.find({ isActive: true }).sort({
+    order: 1,
+  });
+
+  const testimonials = JSON.parse(JSON.stringify(testimonialsRes));
 
   return (
     <section id="testimonials" className="py-20 md:py-32 bg-muted/30">
