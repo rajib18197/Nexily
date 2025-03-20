@@ -9,6 +9,8 @@ import BlogSection from "@/components/blogs/Blogs";
 import ContactFormSection from "@/components/Contact";
 import { Suspense } from "react";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <main className="min-h-screen">
