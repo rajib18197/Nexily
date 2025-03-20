@@ -7,7 +7,7 @@ export default async function HeroSection() {
   await connectToDatabase();
   const heroRes = await Hero.findOne({ isActive: true });
   const heroData = JSON.parse(JSON.stringify(heroRes));
-
+  console.log(heroData, 111);
   return (
     <section className="relative pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background pointer-events-none" />

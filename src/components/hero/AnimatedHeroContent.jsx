@@ -29,8 +29,8 @@ export default function AnimatedHeroContent({ heroData }) {
         </p>
 
         <HeroButtons
-          primaryText={heroData.primaryButtonText}
-          secondaryText={heroData.secondaryButtonText}
+          primaryText={heroData.buttonText1}
+          secondaryText={heroData.buttonText2}
         />
 
         <div className="flex flex-col sm:flex-row gap-4">
