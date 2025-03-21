@@ -2,6 +2,7 @@ import { Lightbulb } from "lucide-react";
 import { Motion, MotionHeading } from "./Motion";
 import connectToDatabase from "@/lib/mongodb";
 import Process from "@/models/Process";
+import { Fragment } from "react";
 
 export default async function WorkingProcess() {
   await connectToDatabase();
@@ -26,45 +27,49 @@ export default async function WorkingProcess() {
 
           <div className="space-y-12 md:space-y-0 relative">
             {steps.map((step, index) => (
-              <Motion
-                index={index}
-                className={`md:flex items-center ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
-              >
-                <div
-                  key={step._id}
-                  className={`md:w-1/2 ${
-                    index % 2 === 0 ? "md:pr-16 lg:pr-24" : "md:pl-16 lg:pl-24"
-                  } md:text-${index % 2 === 0 ? "right" : "left"}`}
+              <Fragment key={step._id}>
+                <Motion
+                  index={index}
+                  className={`md:flex items-center ${
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
                 >
                   <div
-                    className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-4`}
-                    style={{
-                      color: "hsl(12 76% 61%)",
-                      background: "hsl(12 76% 61% / 0.1)",
-                    }}
+                    key={step._id}
+                    className={`md:w-1/2 ${
+                      index % 2 === 0
+                        ? "md:pr-16 lg:pr-24"
+                        : "md:pl-16 lg:pl-24"
+                    } md:text-${index % 2 === 0 ? "right" : "left"}`}
                   >
-                    <Lightbulb className="h-6 w-6" />
+                    <div
+                      className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-4`}
+                      style={{
+                        color: "hsl(12 76% 61%)",
+                        background: "hsl(12 76% 61% / 0.1)",
+                      }}
+                    >
+                      <Lightbulb className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
+                    <p className="text-muted-foreground">{step.description}</p>
                   </div>
-                  <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                  <p className="text-muted-foreground">{step.description}</p>
-                </div>
 
-                <div className="hidden md:block md:w-0 relative">
-                  <div
-                    className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-2 bg-chart-1/10 text-chart-1 border-chart-1/20bg-background z-10 flex items-center justify-center`}
-                    style={{
-                      color: "hsl(12 76% 61%)",
-                      background: "hsl(12 76% 61% / 0.1)",
-                    }}
-                  >
-                    <span className="font-bold">{index + 1}</span>
+                  <div className="hidden md:block md:w-0 relative">
+                    <div
+                      className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border-2 bg-chart-1/10 text-chart-1 border-chart-1/20bg-background z-10 flex items-center justify-center`}
+                      style={{
+                        color: "hsl(12 76% 61%)",
+                        background: "hsl(12 76% 61% / 0.1)",
+                      }}
+                    >
+                      <span className="font-bold">{index + 1}</span>
+                    </div>
                   </div>
-                </div>
 
-                <div className="md:w-1/2" />
-              </Motion>
+                  <div className="md:w-1/2" />
+                </Motion>
+              </Fragment>
             ))}
           </div>
         </div>
