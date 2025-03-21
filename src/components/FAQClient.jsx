@@ -12,14 +12,14 @@ export default function FAQClient({ faqs, topPart, hiddenPart }) {
 
   return (
     <div className="" style={{ width: "80%", margin: "0 auto" }}>
-      {faqs.map(({ id, question, answer }, i) => (
+      {faqs.map(({ _id, question, answer }, i) => (
         <div
-          className={`question ${openQuestion === id ? "open" : undefined}`}
-          key={id}
-          onClick={() => toggleQuestion(id)}
+          className={`question ${openQuestion === _id ? "open" : undefined}`}
+          key={_id}
+          onClick={() => toggleQuestion(_id)}
         >
           {topPart[i]}
-          {openQuestion === id && hiddenPart[i]}
+          {openQuestion === _id && hiddenPart[i]}
         </div>
       ))}
     </div>
