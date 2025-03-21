@@ -29,7 +29,7 @@ export default function BlogCard({ post, index }) {
         <div className="relative">
           <div className="aspect-[16/9] overflow-hidden">
             <img
-              src={post.image || "/placeholder.svg"}
+              src={post.coverImage || "/placeholder.svg"}
               alt={post.title}
               className={`w-full h-full object-cover transition-transform duration-700 ${
                 isHovered ? "scale-110" : "scale-100"
@@ -78,7 +78,7 @@ export default function BlogCard({ post, index }) {
         </CardContent>
 
         <CardFooter className="p-6 pt-0">
-          <Link href={`/blog/${post?.id}`}>
+          <Link href={`/blog/${post?._id}`}>
             <Button
               variant="ghost"
               // className="p-0 h-auto font-medium group/btn hover:bg-transparent"

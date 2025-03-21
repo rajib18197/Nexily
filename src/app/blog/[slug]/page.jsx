@@ -11,6 +11,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Blog from "@/models/Blog";
+import connectToDatabase from "@/lib/mongodb";
+import User from "@/models/User";
 
 // This would normally come from a CMS or API
 const getBlogPost = (slug) => {
@@ -56,8 +59,22 @@ const getBlogPost = (slug) => {
   };
 };
 
-export default function BlogPostPage({ params }) {
-  const post = getBlogPost(params.slug);
+export default async function BlogPostPage({ params }) {
+  await connectToDatabase();
+  const { slug } = await params;
+  console.log(slug, 1010, params);
+  const blogData = await Blog.findById(slug).populate({
+    path: "user",
+    model: "User",
+    strictPopulate: false,
+  });
+  const post = JSON.parse(JSON.stringify(blogData));
+  console.log(post);
+  const userData = await User.findById(post.author);
+  const user = JSON.parse(JSON.stringify(userData));
+  console.log(user);
+
+  // const post = getBlogPost(params.slug);
 
   return (
     <div className="min-h-screen">
@@ -88,19 +105,17 @@ export default function BlogPostPage({ params }) {
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center">
                   <Avatar className="h-12 w-12 mr-4">
-                    <AvatarImage src={post.authorImage} alt={post.author} />
+                    {/* <AvatarImage src={post.authorImage} alt={post.author} /> */}
                     <AvatarFallback>
-                      {post.author
+                      {user.name
                         .split(" ")
                         .map((n) => n[0])
                         .join("")}
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="font-medium">{post.author}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {post.authorRole}
-                    </p>
+                    <p className="font-medium">{user.name}</p>
+                    <p className="text-sm text-muted-foreground">{user.role}</p>
                   </div>
                 </div>
 
@@ -121,7 +136,7 @@ export default function BlogPostPage({ params }) {
           {/* Featured Image */}
           <div className="w-full h-[400px] md:h-[500px] mb-12 relative">
             <img
-              src={post.image || "/placeholder.svg"}
+              src={post.coverImage || "/placeholder.svg"}
               alt={post.title}
               className="w-full h-full object-cover"
             />
@@ -142,52 +157,11 @@ export default function BlogPostPage({ params }) {
                   <span
                     key={index}
                     className="bg-muted text-muted-foreground text-sm px-3 py-1 rounded-full"
+                    style={{ background: "orangered", color: "white" }}
                   >
                     {tag}
                   </span>
                 ))}
-              </div>
-            </div>
-
-            {/* Share and Actions */}
-            {/* <div className="flex justify-between items-center py-6 border-t border-b border-border mb-12">
-              <Button variant="ghost" size="sm" className="gap-2">
-                <Share2 className="h-4 w-4" />
-                Share
-              </Button>
-              <div className="flex gap-2">
-                <Button variant="ghost" size="sm" className="gap-2">
-                  <Bookmark className="h-4 w-4" />
-                  Save
-                </Button>
-                <Button variant="ghost" size="sm" className="gap-2">
-                  <MessageSquare className="h-4 w-4" />
-                  Comment
-                </Button>
-              </div>
-            </div> */}
-
-            {/* Author Bio */}
-            <div className="bg-muted/30 rounded-xl p-6 mb-12">
-              <div className="flex items-start gap-4">
-                <Avatar className="h-16 w-16">
-                  <AvatarImage src={post.authorImage} alt={post.author} />
-                  <AvatarFallback>
-                    {post.author
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </AvatarFallback>
-                </Avatar>
-                <div>
-                  <h3 className="text-lg font-semibold mb-1">
-                    About {post.author}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    {post.authorRole}
-                  </p>
-                  <p>{post.authorBio}</p>
-                </div>
               </div>
             </div>
           </div>

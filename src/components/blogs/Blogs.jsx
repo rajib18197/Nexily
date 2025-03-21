@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -104,6 +104,7 @@ const blogPosts = [
 export default function BlogSection() {
   const [visiblePosts, setVisiblePosts] = useState(3);
   const [activeCategory, setActiveCategory] = useState("All");
+  const [blogPosts, setBlogPosts] = useState([]);
 
   const categories = [
     "All",
@@ -118,6 +119,20 @@ export default function BlogSection() {
   const loadMorePosts = () => {
     setVisiblePosts((prev) => Math.min(prev + 3, filteredPosts.length));
   };
+
+  useEffect(() => {
+    async function getBlogs() {
+      try {
+        const response = await fetch(`/api/blog`);
+        const data = await response.json();
+        console.log(data);
+        setBlogPosts(data.posts);
+      } catch (err) {
+        console.error(err, 10188);
+      }
+    }
+    getBlogs();
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -265,7 +280,7 @@ export default function BlogSection() {
             .filter((post) => !post.featured || activeCategory !== "All")
             .slice(0, visiblePosts)
             .map((post, index) => (
-              <BlogCard key={post.id} post={post} index={index} />
+              <BlogCard key={post._id} post={post} index={index} />
             ))}
         </motion.div>
 
