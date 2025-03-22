@@ -3,6 +3,7 @@ import Footer from "@/components/footer";
 import { Zap } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import AllBlogs from "@/components/blogs/AllBlogs";
 
 export default function BlogPage() {
   return (
@@ -41,7 +42,7 @@ export default function BlogPage() {
             </p>
           </div>
         </div>
-        <BlogSection />
+        <AllBlogs />
       </main>
       <Footer />
     </div>

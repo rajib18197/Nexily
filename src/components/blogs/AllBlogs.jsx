@@ -8,7 +8,7 @@ import BlogCard from "./BlogCard";
 import "../FAQ.css";
 import Link from "next/link";
 
-export default function BlogSection() {
+export default function AllBlogs() {
   const [visiblePosts, setVisiblePosts] = useState(3);
   const [activeCategory, setActiveCategory] = useState("All");
   const [blogPosts, setBlogPosts] = useState([]);
@@ -187,14 +187,13 @@ export default function BlogSection() {
         >
           {filteredPosts
             .filter((post) => !post.featured || activeCategory !== "All")
-            .slice(0, visiblePosts)
             .map((post, index) => (
               <BlogCard key={post._id} post={post} index={index} />
             ))}
         </motion.div>
 
         {/* Load More Button */}
-        {filteredPosts.slice(3).length >= 1 && (
+        {/* {filteredPosts.slice(3).length >= 1 && (
           <div className="mt-12 text-center">
             <Link href={"/blog"}>
               <Button
@@ -213,7 +212,7 @@ export default function BlogSection() {
               </Button>
             </Link>
           </div>
-        )}
+        )} */}
       </div>
     </section>
   );
