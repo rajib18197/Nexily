@@ -116,6 +116,8 @@ export default function BlogSection() {
       ? blogPosts
       : blogPosts.filter((post) => post.category === activeCategory);
 
+  console.log(filteredPosts);
+
   const loadMorePosts = () => {
     setVisiblePosts((prev) => Math.min(prev + 3, filteredPosts.length));
   };
@@ -285,14 +287,11 @@ export default function BlogSection() {
         </motion.div>
 
         {/* Load More Button */}
-        {visiblePosts <
-          filteredPosts.filter(
-            (post) => !post.featured || activeCategory !== "All"
-          ).length && (
+        {filteredPosts.slice(3).length >= 1 && (
           <div className="mt-12 text-center">
             <Link href={"/blog"}>
               <Button
-                onClick={loadMorePosts}
+                // onClick={loadMorePosts}
                 variant="outline"
                 size="lg"
                 className="group"

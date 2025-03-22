@@ -93,7 +93,17 @@ export default async function BlogPostPage({ params }) {
 
             <div className="mb-6">
               <span className="inline-block bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full mb-4">
-                {post.category}
+                Category:{" "}
+                <span
+                  style={{
+                    background: "orangered",
+                    display: "inline-block",
+                    padding: "4px 8px",
+                    borderRadius: "100px",
+                  }}
+                >
+                  {post.category}
+                </span>
               </span>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                 {post.title}
@@ -104,15 +114,15 @@ export default async function BlogPostPage({ params }) {
 
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center">
-                  <Avatar className="h-12 w-12 mr-4">
-                    {/* <AvatarImage src={post.authorImage} alt={post.author} /> */}
+                  {/* <Avatar className="h-12 w-12 mr-4">
+                    <AvatarImage src={post.authorImage} alt={post.author} />
                     <AvatarFallback>
                       {user.name
                         .split(" ")
                         .map((n) => n[0])
                         .join("")}
                     </AvatarFallback>
-                  </Avatar>
+                  </Avatar> */}
                   <div>
                     <p className="font-medium">{user.name}</p>
                     <p className="text-sm text-muted-foreground">{user.role}</p>
@@ -134,11 +144,11 @@ export default async function BlogPostPage({ params }) {
           </div>
 
           {/* Featured Image */}
-          <div className="w-full h-[400px] md:h-[500px] mb-12 relative">
+          <div className="container mx-auto px-4 max-w-4xl mb-12 h-[400px] md:h-[500px]">
             <img
               src={post.coverImage || "/placeholder.svg"}
               alt={post.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contains"
             />
           </div>
 
