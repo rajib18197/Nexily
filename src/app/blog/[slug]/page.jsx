@@ -6,6 +6,7 @@ import {
   Share2,
   Bookmark,
   MessageSquare,
+  Zap,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/footer";
@@ -14,6 +15,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Blog from "@/models/Blog";
 import connectToDatabase from "@/lib/mongodb";
 import User from "@/models/User";
+import { cn } from "@/lib/utils";
 
 // This would normally come from a CMS or API
 const getBlogPost = (slug) => {
@@ -78,7 +80,30 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <header
+        className={cn(
+          "fixed top-0 w-full z-50 transition-all duration-300"
+            ? "bg-background/80 backdrop-blur-md shadow-sm"
+            : "bg-transparent"
+        )}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            <Link href="/" className="flex items-center space-x-2">
+              <Zap
+                className="h-8 w-8 text-primary"
+                style={{ color: "hsl(221.2 83.2% 53.3%)" }}
+              />
+              <span
+                className="font-bold text-xl md:text-2xl"
+                style={{ color: "hsl(221.2 83.2% 53.3%)" }}
+              >
+                Nexily
+              </span>
+            </Link>
+          </div>
+        </div>
+      </header>
       <main>
         <article className="pt-32 pb-20">
           {/* Header */}
