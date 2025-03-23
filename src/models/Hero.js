@@ -36,10 +36,7 @@ const HeroSchema = new mongoose.Schema(
       type: Number,
       default: 25,
     },
-    heroImage: {
-      type: String,
-      default: "/placeholder.svg?height=600&width=800",
-    },
+    images: [String],
     isActive: {
       type: Boolean,
       default: true,

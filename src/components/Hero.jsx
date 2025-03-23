@@ -23,7 +23,7 @@ export default async function HeroSection() {
             <AnimatedHeroContent heroData={heroData} />
           </div>
 
-          <AnimatedHeroImage imageUrl={heroData.heroImage} />
+          <AnimatedHeroImage images={[heroData.images]} />
         </div>
       </div>
     </section>
