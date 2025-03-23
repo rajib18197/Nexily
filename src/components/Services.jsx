@@ -23,10 +23,9 @@ async function ServicesSection() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <Motion index={index}>
+            <Motion index={index} key={service._id}>
               <div
                 className="h-full rounded-xl p-6 flex flex-col"
-                key={service._id}
                 style={{
                   backgroundColor: "hsl(221.2 83.2% 53.3%)",
                   color: "white",
